@@ -27,7 +27,8 @@ void testArray() {
 }
 
 void testStack() {
-	StackSeq test(3);
+	//StackSeq test(3);
+	StackLinked test;
 	for (int i = 0; i < size(numbers); i++)
 		test.push(numbers[i]);
 	test.print();

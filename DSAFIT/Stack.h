@@ -1,5 +1,6 @@
 #pragma once
 #include<exception>
+#include "Node.h"
 #include<iostream>
 /*
 	STACKS
@@ -59,6 +60,39 @@ public:
 	void print() {
 		for (int i = counter-1; i >= 0; i--)
 			std::cout << "|" << arr[i] << "|" << std::endl;
+		std::cout << "---" << std::endl;
+	}
+};
+
+class StackLinked : Stack {
+	Node* top = nullptr;
+	int counter = 0;
+public:
+	void push(int el) {
+		Node* newNode = new Node(el, top);
+		top = newNode;
+		counter++;
+	}
+	int pop() {
+		Node* deleted = top;
+		top = top->getNext();
+		int x = deleted->getValue();
+		delete deleted;
+		counter--;
+		return x;
+	}
+	int peek() {
+		if (isEmpty())
+			throw std::exception("Empty stack");
+		return top->getValue();
+	}
+	bool isEmpty() {return counter == 0;}
+	void print() {
+		Node* temp = top;
+		while (temp != nullptr) {
+			std::cout << "|" << temp->getValue() << "|" << std::endl;
+			temp = temp->getNext();
+		}
 		std::cout << "---" << std::endl;
 	}
 };
