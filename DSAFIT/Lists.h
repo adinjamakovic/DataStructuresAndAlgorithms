@@ -27,6 +27,7 @@ class Array : List {
 		arr = new int[max];
 		for (int i = 0; i < counter; i++)
 			arr[i] = temp[i];
+		delete[] temp;
 	}
 public:
 	Array(int max = 100) {

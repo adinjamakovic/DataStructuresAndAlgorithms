@@ -1,6 +1,7 @@
 #include<iostream>
 #include "Lists.h"
 #include "Stack.h"
+#include "Queue.h"
 using namespace std;
 
 int numbers[] = { 44, 12, 654, 1, 7, 2, 6, 43, 78 };
@@ -42,8 +43,27 @@ void testStack() {
 		cout << "Empty list" << endl;
 }
 
+void testQueue() {
+	QueueSeq test(3);
+	for (int i = 0; i < size(numbers); i++)
+		test.enqueue(numbers[i]);
+	cout << "Initial Queue: \n";
+	test.print();
+	cout << "Removing element by element until empty:\n";
+	int i = 0;
+	while(!test.isEmpty()) {
+		if (i == rand() % 9 + 1)
+			test.enqueue(rand());
+		cout << "Removing element: " << test.dequeue() << endl;
+		if (test.isEmpty()) cout << "Queue is empty";
+		else test.print();
+		i++;
+	}
+}
+
 int main() {
 	//testArray();
-	testStack();
+	//testStack();
+	testQueue();
 	return 0;
 }

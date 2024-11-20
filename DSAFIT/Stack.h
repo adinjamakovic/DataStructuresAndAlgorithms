@@ -27,6 +27,7 @@ class StackSeq : Stack {
 		arr = new int[max];
 		for (int i = 0; i < counter; i++)
 			arr[i] = temp[i];
+		delete[] temp;
 	}
 public:
 	StackSeq(int max = 100) {
