@@ -3,6 +3,7 @@
 #include "Stack.h"
 #include "Queue.h"
 #include "PriorityQueue.h"
+#include "nSquaredSorts.h"
 using namespace std;
 
 int numbers[] = { 44, 12, 654, 1, 7, 2, 6, 43, 78 };
@@ -69,6 +70,11 @@ void testQueue() {
 int main() {
 	//testArray();
 	//testStack();
-	testQueue();
+	//testQueue();
+	print(numbers, size(numbers));
+	//BubbleSort(numbers, size(numbers));
+	//InsertionSort(numbers, size(numbers));
+	SelectionSort(numbers, size(numbers));
+	print(numbers, size(numbers));
 	return 0;
 }
