@@ -51,8 +51,7 @@ public:
 				maxI = i;
 		int x = arr[maxI];
 		counter--;
-		for (int i = maxI; i < counter; i++)
-			arr[i] = arr[i + 1];
+		arr[maxI] = arr[counter];
 		return x;
 	}
 	bool isEmpty() { return counter == 0; }
