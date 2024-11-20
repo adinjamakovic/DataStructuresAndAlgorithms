@@ -130,7 +130,9 @@
     <ClCompile Include="DSAFIT.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AlgorithmUtilities.h" />
     <ClInclude Include="Lists.h" />
+    <ClInclude Include="nlognSorts.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="nSquaredSorts.h" />
     <ClInclude Include="PriorityQueue.h" />
