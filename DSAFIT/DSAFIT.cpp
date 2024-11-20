@@ -2,6 +2,7 @@
 #include "Lists.h"
 #include "Stack.h"
 #include "Queue.h"
+#include "PriorityQueue.h"
 using namespace std;
 
 int numbers[] = { 44, 12, 654, 1, 7, 2, 6, 43, 78 };
@@ -45,7 +46,8 @@ void testStack() {
 
 void testQueue() {
 	//QueueSeq test(3);
-	QueueLinked test;
+	//QueueLinked test;
+	PriorityQueueSeq test(3);
 	for (int i = 0; i < size(numbers); i++)
 		test.enqueue(numbers[i]);
 	cout << "Initial Queue: \n";
