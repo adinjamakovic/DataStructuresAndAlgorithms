@@ -6,6 +6,25 @@
 	LINKED
 */
 
+class Node
+{
+	int value;
+	Node* next;
+public:
+	Node(int value, Node* next) {
+		this->value = value;
+		this->next = next;
+	}
+	int getValue() { return value; }
+	Node* getNext() { return next; }
+	void setValue(int val) {
+		value = val;
+	}
+	void setNext(Node* nextN) {
+		next = nextN;
+	}
+};
+
 class List {
 public:
 	virtual void add(int el) = 0;
@@ -90,4 +109,82 @@ public:
 	}
 };
 
-
+class LinkedList : Array {
+	int counter = 0;
+	Node* head = nullptr;
+public:
+	void add(int el) {
+		Node* temp = new Node(el, head);
+		head = temp;
+		counter++;
+	}
+	int remove() {
+		if (counter == 0)
+			throw std::exception("Not possible, list empty");
+		/*Node* temp = head;
+		int x = temp->getValue();
+		head = head->getNext();
+		delete temp;*/
+		Node* temp = head;
+		while (temp->getNext()->getNext() != nullptr)
+			temp = temp->getNext();
+		Node* deleted = temp->getNext();
+		int x = deleted->getValue();
+		temp->setNext(nullptr);
+		counter--;
+		return x;
+	}
+	void addAt(int el, int index) {
+		if (counter == 0) {
+			add(el);
+			return;
+		}
+		Node* temp = head;
+		for (int i = 0; i < index-1; i++)
+			temp = temp->getNext();
+		Node* newNode = new Node(el, temp->getNext());
+		temp->setNext(newNode);
+		counter++;
+	}
+	int removeFrom(int index) {
+		if(counter==0)
+			throw std::exception("Not possible, list empty");
+		Node* temp = head;
+		for (int i = 0; i < index-1; i++)
+			temp = temp->getNext();
+		Node* deleted = temp->getNext();
+		temp->setNext(deleted->getNext());
+		int x = deleted->getValue();
+		delete deleted;
+		counter--;
+		return x;
+	}
+	int findEl(int el) {
+		if (counter == 0)
+			throw std::exception("List is empty, item doesn't exist");
+		Node* temp = head;
+		int i = 0;
+		while (temp != nullptr) {
+			if (temp->getValue() == el)
+				return i;
+			i++;
+			temp = temp->getNext();
+		}
+	}
+	int findKth(int index) {
+		if (index >= counter || index < 0)
+			throw std::exception("Not valid index");
+		Node* temp = head;
+		for (int i = 0; i < index; i++)
+			temp = temp->getNext();
+		return temp->getValue();
+	}
+	void printList() {
+		Node* temp = head;
+		while (temp != nullptr) {
+			std::cout << temp->getValue() << " | ";
+			temp = temp->getNext();
+		}
+		std::cout << std::endl;
+	}
+};
