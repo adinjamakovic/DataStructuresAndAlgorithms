@@ -62,3 +62,49 @@ public:
 		std::cout << std::endl;
 	}
 };
+
+class PriorityQueueLinked : PriorityQueue {
+	Node* head = nullptr;
+	int counter = 0;
+public:
+	void enqueue(int el) {
+		Node* temp = head;
+		Node* priorityTemp = nullptr;
+		counter++;
+
+		while (temp != nullptr) {
+			if (temp->getValue() < el)
+				break;
+
+			priorityTemp = temp;
+			temp = temp->getNext();
+		}
+
+		Node* newNode = new Node(el, temp);
+		if (priorityTemp == nullptr) {
+			head = newNode;
+		}
+		else{
+			priorityTemp->setNext(newNode);
+		}
+	}
+	int dequeue() {
+		if (isEmpty()) throw std::exception("Queue is empty");
+		Node* temp = head;
+		head = head->getNext();
+		int x = temp->getValue();
+		delete temp;
+		counter--;
+		return x;
+	}
+	bool isEmpty() { return counter == 0; }
+	int getCounter() { return counter; }
+	void print() {
+		Node* temp = head;
+		while (temp != nullptr) {
+			std::cout << temp->getValue() << " | ";
+			temp = temp->getNext();
+		}
+		std::cout << std::endl;
+	}
+};

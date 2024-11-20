@@ -47,7 +47,8 @@ void testStack() {
 void testQueue() {
 	//QueueSeq test(3);
 	//QueueLinked test;
-	PriorityQueueSeq test(3);
+	//PriorityQueueSeq test(3);
+	PriorityQueueLinked test;
 	for (int i = 0; i < size(numbers); i++)
 		test.enqueue(numbers[i]);
 	cout << "Initial Queue: \n";
