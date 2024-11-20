@@ -30,6 +30,9 @@ class Array : List {
 		delete[] temp;
 	}
 public:
+	~Array() {
+		delete[] arr;
+	}
 	Array(int max = 100) {
 		this->max = max;
 		arr = new int[max];
@@ -95,6 +98,14 @@ class LinkedList : Array {
 	int counter = 0;
 	Node* head = nullptr;
 public:
+	~LinkedList() {
+		Node* temp = head;
+		while (temp != nullptr) {
+			Node* t = temp;
+			temp = temp->getNext();
+			delete t;
+		}
+	}
 	void add(int el) {
 		Node* temp = new Node(el, head);
 		head = temp;

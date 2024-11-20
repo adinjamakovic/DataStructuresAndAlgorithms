@@ -34,6 +34,9 @@ class QueueSeq : Queue {
 		counter = max - 100;
 	}
 public:
+	~QueueSeq() {
+		delete[] arr;
+	}
 	QueueSeq(int max = 100) {
 		this->max = max;
 		arr = new int[max];
@@ -75,6 +78,56 @@ public:
 			a++;
 			if (a == max)
 				a = 0;
+		}
+		std::cout << std::endl;
+	}
+};
+
+class QueueLinked : Queue {
+	Node* head = nullptr;
+	Node* tail = nullptr;
+	int counter = 0;
+public:
+	~QueueLinked() {
+		Node* temp = head;
+		while (temp != nullptr) {
+			Node* t = temp;
+			temp = temp->getNext();
+			delete t;
+		}
+		tail = nullptr;
+	}
+	void enqueue(int el) {
+		Node* t = new Node(el, nullptr);
+		
+		if (tail != nullptr) {
+			tail->setNext(t);
+			tail = t;
+		}
+		else {
+			tail = t;
+			head = t;
+		}
+		counter++;
+	}
+	int dequeue() {
+		if (counter == 0) throw std::exception("Queue is empty");
+		Node* temp = head;
+		head = head->getNext();
+		if (head == nullptr)
+			tail = nullptr;
+		int x = temp->getValue();
+		delete temp;
+		counter--;
+		return x;
+	}
+	bool isEmpty() {return counter == 0;}
+	int getCounter() { return counter; }
+	void print() {
+		Node* temp = head;
+		while (temp != nullptr) {
+			std::cout << temp->getValue() << " | ";
+			temp = temp->getNext();
 		}
 		std::cout << std::endl;
 	}

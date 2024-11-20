@@ -30,6 +30,9 @@ class StackSeq : Stack {
 		delete[] temp;
 	}
 public:
+	~StackSeq() {
+		delete[] arr;
+	}
 	StackSeq(int max = 100) {
 		this->max = max;
 		arr = new int[max];
@@ -69,6 +72,14 @@ class StackLinked : Stack {
 	Node* top = nullptr;
 	int counter = 0;
 public:
+	~StackLinked() {
+		Node* temp = top;
+		while (temp != nullptr) {
+			Node* t = temp;
+			temp = temp->getNext();
+			delete t;
+		}
+	}
 	void push(int el) {
 		Node* newNode = new Node(el, top);
 		top = newNode;
