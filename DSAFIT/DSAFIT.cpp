@@ -86,7 +86,7 @@ int main() {
 	//SelectionSort(numbers, size(numbers));
 	//heapSort(numbers, size(numbers));
 	//MergeSort(numbers, numbersCopy, 0, size(numbers));
-	QuickSort(numbers, 0, size(numbers));
+	QuickSort(numbers, 0, size(numbers) - 1);
 	print(numbers, size(numbers));
 	//=============SORTING ALGORITHMS==================
 	return 0;
