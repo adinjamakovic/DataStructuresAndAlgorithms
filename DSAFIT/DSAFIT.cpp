@@ -88,7 +88,8 @@ int main() {
 	//heapSort(numbers, size(numbers));
 	//MergeSort(numbers, numbersCopy, 0, size(numbers));
 	//QuickSort(numbers, 0, size(numbers) - 1);
-	BucketSort(numbers, size(numbers));
+	//BucketSort(numbers, size(numbers));
+	RadixSort(numbers, size(numbers));
 	print(numbers, size(numbers));
 	//=============SORTING ALGORITHMS==================
 	return 0;
