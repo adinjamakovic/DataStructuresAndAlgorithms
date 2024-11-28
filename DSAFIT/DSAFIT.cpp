@@ -7,7 +7,8 @@
 #include "nlognSorts.h"
 using namespace std;
 
-int numbers[] = { 44, 12, 654, 1, 7, 2, 6, 43, 78 };
+int numbers[] = { 44, 12, 654, 1, 7, 2, 6, 43, 78, 41, 432, 184, 832, 974 };
+int numbersCopy[] = { 44, 12, 654, 1, 7, 2, 6, 43, 78, 41, 432, 184, 832, 974 };
 
 
 
@@ -76,7 +77,8 @@ int main() {
 	//BubbleSort(numbers, size(numbers));
 	//InsertionSort(numbers, size(numbers));
 	//SelectionSort(numbers, size(numbers));
-	heapSort(numbers, size(numbers));
+	//heapSort(numbers, size(numbers));
+	MergeSort(numbers, numbersCopy, 0, size(numbers));
 	print(numbers, size(numbers));
 	return 0;
 }
