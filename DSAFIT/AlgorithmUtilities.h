@@ -6,6 +6,14 @@ void print(int* numbers, int size) {
 	std::cout << std::endl;
 }
 
+void swapArrayElements(int* arr, int i, int j) {
+	if (i != j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+}
+
 void swap(int& a, int& b) {
 	int temp = a;
 	a = b;

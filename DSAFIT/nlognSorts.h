@@ -66,3 +66,18 @@ void MergeSort(int* temp, int* elements, int start1, int size) {
 	}
 }
 
+
+void QuickSort(int* arr, int low, int high) {
+	if (low < high) {
+		int pivotloc = low;
+		int pivotkey = arr[low];
+		for (int i = low+1; i < high; i++)
+			if (arr[i] < pivotkey) {
+				pivotloc++;
+				swapArrayElements(arr, pivotloc, i);
+			}
+		swapArrayElements(arr, low, pivotloc);
+		QuickSort(arr, low, pivotloc);
+		QuickSort(arr, pivotloc + 1, high);
+	}
+}
