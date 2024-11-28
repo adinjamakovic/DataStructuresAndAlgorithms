@@ -19,3 +19,11 @@ void swap(int& a, int& b) {
 	a = b;
 	b = temp;
 }
+
+int getMaxValue(int* arr, int n) {
+	int maxValue = arr[0];
+	for (int i = 0; i < n; i++)
+		if (arr[i] > maxValue)
+			maxValue = arr[i];
+	return maxValue;
+}

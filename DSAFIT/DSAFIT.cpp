@@ -5,6 +5,7 @@
 #include "PriorityQueue.h"
 #include "nSquaredSorts.h"
 #include "nlognSorts.h"
+#include "BucketRadix.h"
 using namespace std;
 
 int numbers[] = { 3, 44, 12, 654, 1, 7, 2, 6, 43, 78, 41, 432, 184, 832, 974, 100, 1000, 41534561, 123,321, 95195 };
@@ -86,7 +87,8 @@ int main() {
 	//SelectionSort(numbers, size(numbers));
 	//heapSort(numbers, size(numbers));
 	//MergeSort(numbers, numbersCopy, 0, size(numbers));
-	QuickSort(numbers, 0, size(numbers) - 1);
+	//QuickSort(numbers, 0, size(numbers) - 1);
+	BucketSort(numbers, size(numbers));
 	print(numbers, size(numbers));
 	//=============SORTING ALGORITHMS==================
 	return 0;
